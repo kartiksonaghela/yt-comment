@@ -1,3 +1,4 @@
+
 import matplotlib
 matplotlib.use('Agg')  # Use non-interactive backend before importing pyplot
 
@@ -15,7 +16,6 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from mlflow.tracking import MlflowClient
 import matplotlib.dates as mdates
-import pickle
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -52,12 +52,11 @@ def preprocess_comment(comment):
 # Load the model and vectorizer from the model registry and local storage
 def load_model_and_vectorizer(model_name, model_version, vectorizer_path):
     # Set MLflow tracking URI to your server
-    mlflow.set_tracking_uri("http://ec2-13-201-19-145.ap-south-1.compute.amazonaws.com:5000/")  # Replace with your MLflow tracking URI
+    mlflow.set_tracking_uri("http://ec2-13-201-100-239.ap-south-1.compute.amazonaws.com:5000/")  # Replace with your MLflow tracking URI
     client = MlflowClient()
     model_uri = f"models:/{model_name}/{model_version}"
     model = mlflow.sklearn.load_model(model_uri)
     vectorizer = joblib.load(vectorizer_path)  # Load the vectorizer
-    #vectorizer=pickle.load(vectorizer_path)
     return model, vectorizer
 
 # Initialize the model and vectorizer
@@ -106,15 +105,12 @@ def predict():
         return jsonify({"error": "No comments provided"}), 400
 
     try:
-        print("hello")
         # Preprocess each comment before vectorizing
         preprocessed_comments = [preprocess_comment(comment) for comment in comments]
         
         # Transform comments using the vectorizer
         transformed_comments = vectorizer.transform(preprocessed_comments)
-        print("hii")
-
-        print(transformed_comments)
+        
         # Make predictions
         predictions = model.predict(transformed_comments).tolist()  # Convert to list
         
