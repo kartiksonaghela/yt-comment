@@ -29,15 +29,15 @@ jobs:
 
       - name: Run pipeline
         env:
-          AWS_ACCESS_KEY_ID: "AKIAWQUYWC2CY2KRFWJM"
-          AWS_SECRET_ACCESS_KEY: "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"
+          AWS_ACCESS_KEY_ID: "AKIAWQUYWC2CRJLZRF6F"
+          AWS_SECRET_ACCESS_KEY: "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"
         run: |
           dvc repro
 
       - name: Push DVC-tracked data to remote
         env:
-          AWS_ACCESS_KEY_ID: "AKIAWQUYWC2CY2KRFWJM"
-          AWS_SECRET_ACCESS_KEY: "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"
+          AAWS_ACCESS_KEY_ID: "AKIAWQUYWC2CRJLZRF6F"
+          AWS_SECRET_ACCESS_KEY: "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"
         run: |
           dvc push
 
