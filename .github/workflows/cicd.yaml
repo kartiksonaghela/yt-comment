@@ -33,8 +33,9 @@ jobs:
           AWS_SECRET_ACCESS_KEY: "M07vfChhuh/UkZ/+2z/r6TIUOaYdvRQQQcGe8+/T"
         run: |
           dvc repro
+
       - name: Push DVC-tracked data to remote
-        env:          
+        env:
           AWS_ACCESS_KEY_ID: "AKIAWQUYWC2CY2KRFWJM"
           AWS_SECRET_ACCESS_KEY: "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"
         run: |
@@ -60,3 +61,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git push origin ${{ github.ref_name }}
+
+      
