@@ -29,8 +29,13 @@ jobs:
 
       - name: Run pipeline
         env:
+<<<<<<< HEAD
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1  # Replace with your AWS region
+=======
+          AWS_ACCESS_KEY_ID: "AKIAWQUYWC2CY2KRFWJM"
+          AWS_SECRET_ACCESS_KEY: "M07vfChhuh/UkZ/+2z/r6TIUOaYdvRQQQcGe8+/T"
+>>>>>>> 14077ce54dee590f669fe19db7996b2e64d21b48
         run: |
           dvc repro
