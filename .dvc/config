@@ -1,4 +1,4 @@
 [core]
     remote = myremote
 ['remote "myremote"']
-    url = C:\Users\KARTIK\Documents\yt-comment
+    url = s3://ytcommentdvcbucket

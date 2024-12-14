@@ -13,9 +13,7 @@ import seaborn as sns
 import json
 from mlflow.models import infer_signature
 # Set AWS credentials using environment variables
-os.environ['AWS_ACCESS_KEY_ID'] = ''
-os.environ['AWS_SECRET_ACCESS_KEY'] = ''
-os.environ['AWS_DEFAULT_REGION'] = 'ap-south-1'
+
 
 # logging configuration
 logger = logging.getLogger('model_evaluation')
@@ -131,7 +129,7 @@ def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
 
 
 def main():
-    mlflow.set_tracking_uri("http://ec2-13-126-92-15.ap-south-1.compute.amazonaws.com:5000/")
+    mlflow.set_tracking_uri("http://ec2-13-201-19-145.ap-south-1.compute.amazonaws.com:5000/")
 
     mlflow.set_experiment('dvc-pipeline-runs')
     
