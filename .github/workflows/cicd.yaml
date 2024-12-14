@@ -22,8 +22,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run pipeline
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1  # Replace with your AWS region
+          AWS_ACCESS_KEY_ID: "AKIAWQUYWC2CY2KRFWJM"
+          AWS_SECRET_ACCESS_KEY: "M07vfChhuh/UkZ/+2z/r6TIUOaYdvRQQQcGe8+/T"
         run: |
           dvc repro
