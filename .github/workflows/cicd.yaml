@@ -102,7 +102,7 @@ jobs:
           AWS_DEFAULT_REGION: ap-south-1
         run: |
           nohup python flask_app/app.py &
-      - name: Run Flask AAPI tests
+      - name: Run Flask API tests
         run: |
           pytest scripts/test_flask_api.py 
 
