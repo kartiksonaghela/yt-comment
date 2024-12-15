@@ -22,7 +22,7 @@ def test_model_with_vectorizer(model_name, stage, vectorizer_path):
     try:
         # Load the latest version of the model
         model_uri = f"models:/{model_name}/{latest_version}"
-        model = mlflow.pyfunc.load_model(model_uri)
+        model = mlflow.sklearn.load_model(model_uri)
 
         # Load the vectorizer
         with open(vectorizer_path, 'rb') as file:
